@@ -23,10 +23,10 @@ try:
         sex = row[3]
         income = row[4]
         # 打印结果
-        print ("fname=%s,lname=%s,age=%s,sex=%s,income=%s" % \
+        print("fname=%s,lname=%s,age=%s,sex=%s,income=%s" % \
               (fname, lname, age, sex, income ))
 except:
-    print ("Error: unable to fecth data")
+    print("Error: unable to fecth data")
 
 # 关闭数据库连接
 

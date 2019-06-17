@@ -13,10 +13,10 @@ cursor = db.cursor()
 # sql = """INSERT INTO EMPLOYEE(FIRST_NAME,
 #          LAST_NAME, AGE, SEX, INCOME)
 #          VALUES ('Mac', 'Mohan', 20, 'M', 2000)"""
-sql = "INSERT INTO EMPLOYEE(FIRST_NAME,\
-       LAST_NAME, AGE, SEX, INCOME) \
-       VALUES ('%s', '%s', '%s', '%s', '%s' )" % \
-      ('Mac', 'Mohan', 20, 'M', 2000)
+sql = '''INSERT INTO EMPLOYEE(FIRST_NAME,
+       LAST_NAME, AGE, SEX, INCOME) 
+       VALUES ('%s', '%s', '%s', '%s', '%s' )''' % \
+      ('Mac', 'Mohan', 20, 'M', 5000)
 try:
     # 执行sql语句
     cursor.execute(sql)
