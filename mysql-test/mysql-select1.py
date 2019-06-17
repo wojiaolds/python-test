@@ -3,7 +3,7 @@
 
 import mysql.connector
 # 打开数据库连接
-db = mysql.connector.connect(user='root',passwd='lds1992',database='test')
+db = mysql.connector.connect(user='root',passwd='111111',database='test')
 
 # 使用cursor()方法获取操作游标
 cursor = db.cursor()
