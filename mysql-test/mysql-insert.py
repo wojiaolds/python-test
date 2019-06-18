@@ -4,7 +4,7 @@
 import mysql.connector
 
 # 打开数据库连接
-db = mysql.connector.connect(user='root',passwd='111111',database='test')
+db = mysql.connector.connect(user='root',passwd='lds1992',database='test')
 
 # 使用cursor()方法获取操作游标
 cursor = db.cursor()
@@ -16,7 +16,7 @@ cursor = db.cursor()
 sql = '''INSERT INTO EMPLOYEE(FIRST_NAME,
        LAST_NAME, AGE, SEX, INCOME) 
        VALUES ('%s', '%s', '%s', '%s', '%s' )''' % \
-      ('Mac', 'Mohan', 20, 'M', 5000)
+      ('Mac', 'Mohan', 40, 'M', 6012.34)
 try:
     # 执行sql语句
     cursor.execute(sql)
