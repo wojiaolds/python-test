@@ -1,4 +1,3 @@
-
 import math
 
 
@@ -64,6 +63,7 @@ def moveHNT(n, a, b, c):
         moveHNT(1, a, b, c)
         moveHNT(n - 1, b, a, c)
 
+
 moveHNT(4, 'A', 'B', 'C')
 
 print(my_abs(-65.2))
@@ -80,13 +80,45 @@ fun_test(*(1, 'r', 3, 'd'), user='lds', **{'url': 'www.baidu.com', 'passwd': 'ld
 
 print(fact(12))
 
+
 def trim(s):
-    if(s[0] == ' '):
+    if (s[0] == ' '):
         s = s[1:]
-    if(s[-1] == ' '):
+    if (s[-1] == ' '):
         s = s[:-1]
     return s
 
-print("a",end='')
-print(trim(" sdf "),end='')
+
+print("a", end='')
+print(trim(" sdf "), end='')
 print("b")
+
+
+def findMinAndMax(str):
+    if (len(str) == 0):
+        return None, None
+    min = max = str[0]
+    for s in str:
+        if (s < min):
+            min = s
+        if (s > max):
+            math = s
+    return min, max
+
+
+print(findMinAndMax([]))
+print(findMinAndMax([6, 1, 4, 3]))
+
+
+def fib(max):
+    n, a, b = 0, 0, 1
+    while n < max:
+        print(b,end=" ")
+        a, b = b, a + b
+        n = n + 1
+    return 'done'
+
+print(fib(4))
+
+
+

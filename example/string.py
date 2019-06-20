@@ -25,6 +25,17 @@ print('%.2f' % 3.1415926)
 print('%.1f%%' % ((85-72)/72 * 100))
 print(abs(-1.34))
 
-myDef.my_abs(-12)
+s = ['d',1]
+s[0] = 'f'+s[0]
+print(s)
 
+s1 = '123'
+s1 = '234'
+try:
+    s1[0] = 'e' # 不能改变字符串的值
+except Exception as e:
+    print(e)
+finally:
+    print()
+print(s1)
 
