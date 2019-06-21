@@ -39,3 +39,8 @@ finally:
     print()
 print(s1)
 
+
+print('E:\Program Files\Python37\data\\')
+print(list(range(1,2)))
+
+print(''.join('123'))

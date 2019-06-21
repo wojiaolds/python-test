@@ -39,7 +39,7 @@ print("-------------------")
 j =0
 def creatCounter():
     s = [0,1]
- 
+
     def counter():
 
         s[0] = s[0] + 1
