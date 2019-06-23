@@ -2,8 +2,13 @@ import pandas as pd
 
 #1：读取指定行
 df=pd.read_excel('lemon.xlsx')#这个会直接默认读取到这个Excel的第一个表单
+print(type(df.index))
+print(list(df.index))
+print(type(df.columns))
+print(list(df.columns))
 print(type(df))
 print(type(df.iloc[0]))
+print(df.iloc[0])
 data=df.iloc[0].values #0表示第一行 这里读取数据并不包含表头，要注意哦！
 print(type(data))
 print("读取第一行的数据：\n{0}".format(data))
@@ -49,8 +54,16 @@ print("----------------------------------------")
 df=pd.read_excel('lemon.xlsx')
 print(type(df['data'].values))
 print(df['data'])
-print(df.iloc[lambda x:x.index % 2 == 0])
-print(df['title'][df['title'] == '正常登陆'])
+# print(df.iloc[lambda x:x.index % 2 == 0])
+print(df.iloc[df.index % 2 == 0])
+# print(df['title'][df['title'] == '正常登陆'])
+# print(df.loc[df['title'] == '正常登陆',:])
+print(df.dtypes)
+bool_index = (df['title'] == '正常登陆')&(df['case_id'] == 1)
+print(df.loc[bool_index,:])
+# print(type(df),type(df[df['title'] == '正常登陆']))
+# df1 = df[df['title'] == '正常登陆']
+# print(df1[df1['case_id'] == 1])
 # print("获取指定列 输出值\n",df.iloc[df['title'] == '正常登陆', 0:2])
 print("----------------------------------------")
 

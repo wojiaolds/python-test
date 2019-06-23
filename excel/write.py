@@ -3,6 +3,7 @@ import pandas as pd
 # df=pd.read_excel('lemon.xlsx')
 # df.to_excel("sample.xlsx",sheet_name='python',index=False)
 
+
 def find_need_data():
     raw_data = pd.read_excel("lemon.xlsx")
     print(type(raw_data))
@@ -26,7 +27,8 @@ def find_need_data():
         l.append('m')
     w['sex'] = l
     print(w['sex'])
-    w.iloc[3] = ['小火猴', 1, '火', 'None']
+    print(w)
+    w.loc[3] = ['小火猴', 1, '火', 'None']
     print(w)
     w.to_excel("sample.xlsx",sheet_name='python',index=False)
 
