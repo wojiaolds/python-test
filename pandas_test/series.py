@@ -50,6 +50,15 @@ s = pd.Series([1,2,3,4,5],index = ['a','b','c','d','e'])
 print(s[['a', 'c', 'd']])
 print(s.loc['a'])
 
+s = pd.Series(['tom ', ' William Rick', 'john', 'Aelber@t'])
+print (s.str.findall('e'))
+print(s.str.islower())
+print (s.str.swapcase())
+
+
+
+
+
 
 
 

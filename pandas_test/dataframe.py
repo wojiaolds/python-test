@@ -1,4 +1,7 @@
 import pandas as pd
+import numpy as np
+
+
 df = pd.DataFrame()
 print(df)
 print('-----'*10)
@@ -131,6 +134,23 @@ df = df.append(df2)
 print(df)
 df = df.drop(0)
 print(df)
+
+print('-----'*10)
+df = pd.DataFrame(np.random.randn(8, 4),
+index = ['a','b','c','d','e','f','g','h'], columns = ['A', 'B', 'C', 'D'])
+print(df)
+# for getting values with a boolean array
+print(df.loc['a'])
+print (df.loc['a']>0)
+
+print('-----'*10)
+df = pd.DataFrame(np.random.randn(8, 4), columns = ['A', 'B', 'C', 'D'])
+print(df)
+print (df[['A','B']])
+print (df[2:3])
+print(df.A)
+
+
 
 
 
