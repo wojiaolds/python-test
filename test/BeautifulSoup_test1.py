@@ -15,6 +15,7 @@ if __name__=='__main__':
             }
 
     total=[]
+    dic = {}
     for i in range(1,2):
         url='https://www.qidian.com/rank/yuepiao?chn=0&page=%s'% str(i)
         print(url)
@@ -27,19 +28,28 @@ if __name__=='__main__':
         最新章节s=soup.select('#rank-view-list > div > ul > li > div.book-mid-info > p.update > a')
         链接s=soup.select('#rank-view-list > div > ul > li > div.book-mid-info > h4 > a')
 
-        for 书名,作者,类型,简介,最新章节,链接 in zip(书名s,作者s,类型s,简介s,最新章节s,链接s):
-            data={'书名':书名.get_text().strip(),\
-            '作者':作者.get_text().strip(),\
-            '类型':类型.get_text().strip(),\
-            '简介':简介.get_text().strip(),\
-            '最新章节':最新章节.get_text().strip(),\
-            '链接':链接['href'].strip()}
-            total.append(data)
+
+        # for 书名,作者,类型,简介,最新章节,链接 in zip(书名s,作者s,类型s,简介s,最新章节s,链接s):
+        #     data={'书名':书名.get_text().strip(),\
+        #     '作者':作者.get_text().strip(),\
+        #     '类型':类型.get_text().strip(),\
+        #     '简介':简介.get_text().strip(),\
+        #     '最新章节':最新章节.get_text().strip(),\
+        #     '链接':链接['href'].strip()}
+        #     total.append(data)
+        dic['书名'] = [x.get_text().strip() for x in 书名s]
+        dic['作者'] = [x.get_text().strip() for x in 作者s]
+        dic['类型'] = [x.get_text().strip() for x in 类型s]
+        dic['简介'] = [x.get_text().strip() for x in 简介s]
+        dic['最新章节'] = [x.get_text().strip() for x in 最新章节s]
+        dic['链接'] = [x['href'].strip() for x in 链接s]
+
 
     # print(total)
+    print(dic)
 
-    deal1=pandas.DataFrame(total)
-    # print(deal1)
+    deal1=pandas.DataFrame(dic)
+    print(deal1)
     xls_file = 'E:\Program Files\Python37\data\qidian.xls'
     if os.path.exists(xls_file):
         os.remove(xls_file)

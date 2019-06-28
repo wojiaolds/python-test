@@ -3,7 +3,13 @@ import logging
 from sqlalchemy import *
 from mysqlTest.base import *
 
+class Mydf(Base):
+    __tablename__ = 'mydf'
+    __table_args__ = {'mysql_engine': 'InnoDB', 'mysql_charset': 'utf8'}
 
+    index = Column(BigInteger)
+    id = Column(BigInteger,primary_key=True)
+    name = Column(String(50))
 
 class User(Base):
     __tablename__ = 'user'
@@ -28,7 +34,6 @@ class User(Base):
     @classmethod
     def get(cls, session, user_id):
         row = session.query(cls).filter(cls.id == user_id).first()
-
         return cls.to_dict(row)
 
     @classmethod
@@ -42,8 +47,8 @@ class User(Base):
             return False
 
     @classmethod
-    def add(cls, session, name, password):
-        user = cls(name=name,
+    def add(cls, session, user_id,name, password):
+        user = cls(id=user_id,name=name,
                    password=password)
 
         session.add(user)
@@ -57,7 +62,7 @@ class User(Base):
     @classmethod
     def remove(cls, session, user_id):
         try:
-            session.query(cls.id == user_id).delete()
+
             session.commit()
             return True
         except Exception as e:
@@ -68,13 +73,25 @@ class User(Base):
 if __name__ == '__main__':
     session = Session()
 
-    user_id = User.add(session, name='test', password='123')
-    print(User.get(session, user_id=user_id))
+    # user_id = User.add(session, 4,'test', '123')
+    # print(User.get(session, user_id=user_id))
+    # print(user_id)
+    # print(User.update(session, user_id, name='update', password='456'))
+    # print(User.get(session, user_id=user_id))
 
-    print(User.update(session, user_id, name='update', password='456'))
-    print(User.get(session, user_id=user_id))
+    # print(User.remove(session, user_id=4))
+    # print(User.get(session, user_id=4))
 
-    print(User.remove(session, user_id=user_id))
-    print(User.get(session, user_id=user_id))
+    # query = session.query(User).order_by(User.id.desc()).filter(User.name == 'update')
+    query = session.query(User,Mydf).filter(User.id == Mydf.id)
+    print(query)
+    q = query.all()
+    print(len(q))
+    print(type(q))
+    # q = session.query(cls.id == user_id).all()
+    for r in q:
+        row2dict = lambda r: {c.name: str(getattr(r, c.name)) for c in r.__table__.columns}
+        print(row2dict(r))
+
 
     session.close()

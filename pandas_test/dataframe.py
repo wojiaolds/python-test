@@ -9,9 +9,19 @@ data = [1, 2, 3, 4, 5]
 df = pd.DataFrame(data)
 print(df)
 print('-----'*10)
-data = [['Alex',10],['Bob',12],['Clarke',13]]
+data = [['Alex',None],['Bob',12],['Clarke',13]]
 df = pd.DataFrame(data,columns=['Name','Age'])
 print(df)
+print('-----'*10)
+print(df.info())
+print('-----'*10)
+print(df.shape)
+print('-----'*10)
+print(df.shape[0])
+print('-----'*10)
+df1=df.dropna()
+print(df1)
+
 
 print('-----'*10)
 data = [['Alex',10],['Bob',12],['Clarke',13]]

@@ -36,11 +36,11 @@
 
 
 import time
-# import functools
+import functools
 
 def log_time(text):  # 给装饰器log_time()传入一个参数
     def decorator(func):
-        # @functools.wraps(func)
+        @functools.wraps(func)
         def wrapper(*args, **kw):
             print("---start---")
             start = time.time()

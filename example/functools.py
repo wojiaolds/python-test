@@ -17,14 +17,14 @@
 # print(now)
 
 
-# import functools
+import functools
 import time
 from collections import Iterable
 import types
 
 def log2(text=None):
     def decorator(func):
-        # @functools.wraps(func)
+        @functools.wraps(func)
         def wrapper(*args,**kw):
             print(type(text))
             print(type(text) == types.FunctionType)
@@ -50,5 +50,6 @@ now2()
 def now3():
     print('now is:'+'2017-07-10')
 
+print('-----'*10)
 now3()
 

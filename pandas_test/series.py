@@ -39,10 +39,12 @@ s = pd.Series(5, index=[0, 1, 2, 3])
 print(s)
 
 print('----'*10)
-s = pd.Series([1,2,3,4,5],index=['a', 'b', 'c', 'd', 'e'])
+s = pd.Series([1,2,3,4,5],index=['a', 'b', 'c', 'd', 'e'],name='lds')
 print(s)
 # retrieve the first element
 print(s[0])
+df = pd.DataFrame(s)
+print(df)
 
 print('----'*10)
 s = pd.Series([1,2,3,4,5],index = ['a','b','c','d','e'])
