@@ -1,5 +1,8 @@
 import numpy as np
 
+
+
+
 # ndarray.shape 这一数组属性返回一个包含数组维度的元组，它也可以用于调整数组大小。
 a = np.array([[1, 2, 3], [4, 5, 6]])
 print(type(a))
